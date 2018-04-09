@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    Context context;
     RecyclerView.Adapter recyclerview_Adapter;
     RecyclerView.LayoutManager recyclerViewManager;
 
@@ -31,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
 
         String[] data = {"a","b","c","d","e","f"};
 
-        context = getApplicationContext();
         recyclerView = findViewById(R.id.recycler_view);
-        recyclerViewManager = new GridLayoutManager(context,2);
+        recyclerViewManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(recyclerViewManager);
-        recyclerview_Adapter = new MyAdapter(data,context);
+        recyclerview_Adapter = new MyAdapter(data,this);
+        recyclerView.setAdapter(recyclerview_Adapter);
 
     }
 }
